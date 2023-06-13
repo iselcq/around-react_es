@@ -1,0 +1,75 @@
+@import url("./styles/normalize.css");
+
+@import url("./blocks/page/page.css");
+@import url("./blocks/header/header.css");
+@import url("./blocks/logo/logo.css");
+
+@import url("./blocks/profile/profile.css");
+@import url("./blocks/profile/__avatar/profile__avatar.css");
+@import url("./blocks/profile/__avatar-edit/profile__avatar_edit.css");
+@import url("./blocks/profile/__wrapper/profile__wrapper.css");
+@import url("./blocks/profile/__info/profile__info.css");
+@import url("./blocks/profile/__name/profile__name.css");
+@import url("./blocks/profile/__profession/profile__profession.css");
+@import url("./blocks/profile/__edit-button/profile__edit-button.css");
+@import url("./blocks/profile/__add-button/profile__add-button.css");
+@import url("./blocks/profile/__user/profile__user.css");
+
+@import url("./blocks/cards/cards.css");
+@import url("./blocks/cards/__card/cards__card.css");
+@import url("./blocks/cards/__image/cards__image.css");
+@import url("./blocks/cards/__location/cards__location.css");
+@import url("./blocks/cards/__like-button/cards__like-button.css");
+@import url("./blocks/cards/__like/cards__like.css");
+@import url("./blocks/cards/__like-count/cards__like-count.css");
+@import url("./blocks/cards/__like-button/_active/cards__like-button_active.css");
+@import url("./blocks/cards/__info/cards__info.css");
+@import url("./blocks/cards/__remove/cards__remove.css");
+
+@import url("./blocks/footer/__copyright/footer__copyright.css");
+@import url("./blocks/footer/footer.css");
+
+@import url("./blocks/pop-up/pop-up.css");
+@import url("./blocks/pop-up/__card/pop-up__card.css");
+@import url("./blocks/pop-up/__container/pop-up__container.css");
+@import url("./blocks/pop-up/__close/pop-up__close.css");
+@import url("./blocks/pop-up/__input/pop-up__input.css");
+@import url("./blocks/pop-up/__input/_error/pop-up__input_error.css");
+@import url("./blocks/pop-up/__title/pop-up__title.css");
+@import url("./blocks/pop-up/__submit/pop-up__submit.css");
+@import url("./blocks/pop-up/__submit/_disabled/pop-up__submit_disabled.css");
+@import url("./blocks/pop-up/__error/pop-up__error.css");
+
+@import url("./blocks/new-place/new-place.css");
+@import url("./blocks/new-place/__close/new-place__close.css");
+@import url("./blocks/new-place/__submit/new-place__submit.css");
+@import url("./blocks/new-place/__submit/_disabled/new-place__submit_disabled.css");
+@import url("./blocks/new-place/__card/new-place__card.css");
+@import url("./blocks/new-place/__container/new-place__container.css");
+@import url("./blocks/new-place/__input/new-place__input.css");
+@import url("./blocks/new-place/__input/_error/new-place__input_error.css");
+@import url("./blocks/new-place/__title/new-place__title.css");
+@import url("./blocks/new-place/__error/new-place__error.css");
+
+@import url("./blocks/image-popup/image-popup.css");
+@import url("./blocks/image-popup/__card/image-popup__card.css");
+@import url("./blocks/image-popup/__image/image-popup__image.css");
+@import url("./blocks/image-popup/__title/image-popup__title.css");
+@import url("./blocks/image-popup/__close/image-popup__close.css");
+
+@import url("./blocks/profile-pic/profile-pic.css");
+@import url("./blocks/profile-pic/__card/profile-pic__card.css");
+@import url("./blocks/profile-pic/__container/profile-pic__container.css");
+@import url("./blocks/profile-pic/__close/profile-pic__close.css");
+@import url("./blocks/profile-pic/__input/profile-pic__input.css");
+@import url("./blocks/profile-pic/__input/_error/profile-pic__input_error.css");
+@import url("./blocks/profile-pic/__title/profile-pic__title.css");
+@import url("./blocks/profile-pic/__submit/profile-pic__submit.css");
+@import url("./blocks/profile-pic/__submit/_disabled/profile-pic__submit_disabled.css");
+@import url("./blocks/profile-pic/__error/profile-pic__error.css");
+
+@import url("./blocks/delete-card/delete-card.css");
+@import url("./blocks/delete-card/__close/delete-card__close.css");
+@import url("./blocks/delete-card/__submit/delete-card__submit.css");
+@import url("./blocks/delete-card/__card/delete-card__card.css");
+@import url("./blocks/delete-card/__title/delete-card__title.css");
