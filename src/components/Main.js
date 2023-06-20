@@ -1,19 +1,4 @@
-function Main() {
-  function handleEditAvatarClick() {
-    const newAvatarModal = document.querySelector(".profile-pic");
-    newAvatarModal.classList.add("profile-pic__opened");
-  }
-
-  function handleEditProfileClick() {
-    const editProfileModal = document.querySelector(".pop-up");
-    editProfileModal.classList.add("pop-up__opened");
-  }
-
-  function handleAddPlaceClick() {
-    const addPlaceModal = document.querySelector(".new-place");
-    addPlaceModal.classList.add("new-place__opened");
-  }
-
+function Main(props) {
   return (
     <main className="content">
       <section className="profile">
@@ -26,7 +11,7 @@ function Main() {
           <button
             className="profile__avatar-edit"
             id="avatar-edit"
-            onClick={handleEditAvatarClick}
+            onClick={props.onEditAvatarClick}
           ></button>
         </div>
         <div className="profile__info">
@@ -35,7 +20,7 @@ function Main() {
             <button
               className="profile__edit-button"
               id="edit-button"
-              onClick={handleEditProfileClick}
+              onClick={props.onEditProfileClick}
             ></button>
           </div>
           <h2 className="profile__profession">Cargando...</h2>
@@ -43,7 +28,7 @@ function Main() {
         <button
           className="profile__add-button"
           id="add-button"
-          onClick={handleAddPlaceClick}
+          onClick={props.onAddPlaceClick}
         ></button>
       </section>
       <section className="cards"></section>
