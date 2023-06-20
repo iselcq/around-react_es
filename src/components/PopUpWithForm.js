@@ -6,7 +6,10 @@ function PopUpWithForm(props) {
       }`}
     >
       <div className={`${props.name}__card`}>
-        <button className={`${props.name}__close`}></button>
+        <button
+          onClick={props.onCloseClick}
+          className={`${props.name}__close`}
+        ></button>
         <h3 className={`${props.name}__title`}>{`${props.title}`}</h3>
         <form name={`${props.name}__form`}>
           <fieldset className={`${props.name}__container`}>

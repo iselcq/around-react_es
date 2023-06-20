@@ -25,8 +25,10 @@ function App() {
   function handleAddPlaceClick() {
     setIsAddPlacePopupOpen(true);
   }
-  function handleCardClick() {
-    // to do
+  function closeAllPopups() {
+    setIsAddPlacePopupOpen(false);
+    setIsEditProfilePopupOpen(false);
+    setIsEditAvatarPopupOpen(false);
   }
 
   return (
@@ -36,7 +38,7 @@ function App() {
         onEditProfileClick={handleEditProfileClick}
         onAddPlaceClick={handleAddPlaceClick}
         onEditAvatarClick={handleEditAvatarClick}
-        onCardClick={handleCardClick}
+        //  onCardClick={handleCardClick}
       />
       <Footer />
       <PopUpWithForm
@@ -44,6 +46,7 @@ function App() {
         name="pop-up"
         button="Guardar"
         isOpen={isEditProfilePopupOpen}
+        onCloseClick={closeAllPopups}
       >
         <input
           type="text"
@@ -73,6 +76,7 @@ function App() {
         name="new-place"
         button="Crear"
         isOpen={isAddPlacePopupOpen}
+        onCloseClick={closeAllPopups}
       >
         <input
           type="text"
@@ -100,6 +104,7 @@ function App() {
         name="profile-pic"
         button="Guardar"
         isOpen={isEditAvatarPopupOpen}
+        onCloseClick={closeAllPopups}
       >
         <input
           type="url"
@@ -116,6 +121,7 @@ function App() {
         title="¿Estás seguro/a?"
         name="delete-card"
         button="Si"
+        onCloseClick={closeAllPopups}
       ></PopUpWithForm>
       <div className="delete-card"></div>
       <div className="image-popup">
