@@ -6,6 +6,7 @@ import Main from "./Main.js";
 import PopUpWithForm from "./PopUpWithForm";
 
 import "../App.css";
+import Cards from "./Cards";
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] =
@@ -13,6 +14,7 @@ function App() {
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] =
     React.useState(false);
+  const [selectedCard, setSelectedCard] = React.useState(false);
 
   function handleEditAvatarClick() {
     setIsEditAvatarPopupOpen(true);
@@ -38,8 +40,8 @@ function App() {
         onEditProfileClick={handleEditProfileClick}
         onAddPlaceClick={handleAddPlaceClick}
         onEditAvatarClick={handleEditAvatarClick}
-        //  onCardClick={handleCardClick}
       />
+      <Cards />
       <Footer />
       <PopUpWithForm
         title="Editar perfil"

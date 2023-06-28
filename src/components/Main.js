@@ -1,10 +1,36 @@
+import { useState, useEffect } from "react";
+import { api } from "../utils/api.js";
+import Cards from "./Cards.js";
+
 function Main(props) {
+  const [userName, setUserName] = useState("");
+  const [userDescription, setUserDescription] = useState("");
+  const [userAvatar, setUserAvatar] = useState("");
+  const [userId, setUserId] = useState("");
+  const [cards, setCards] = useState([]);
+
+  useEffect(() => {
+    api.getUserInfo().then((res) => {
+      setUserName(res.name);
+      setUserDescription(res.about);
+      setUserAvatar(res.avatar);
+      setUserId(res._id);
+    });
+  }, []);
+
+  useEffect(() => {
+    api.getInitialCards().then((res) => {
+      console.log(res);
+      setCards(res);
+    });
+  }, []);
+
   return (
     <main className="content">
       <section className="profile">
         <div className="profile__wrapper">
           <img
-            src="https://this-person-does-not-exist.com/img/avatar-gen1142640d28aadadfbc368df8fd496c3c.jpg"
+            src={userAvatar}
             alt="imagen de usuario"
             className="profile__avatar"
           />
@@ -16,14 +42,14 @@ function Main(props) {
         </div>
         <div className="profile__info">
           <div className="profile__user">
-            <h1 className="profile__name">Cargando...</h1>
+            <h1 className="profile__name">{userName}</h1>
             <button
               className="profile__edit-button"
               id="edit-button"
               onClick={props.onEditProfileClick}
             ></button>
           </div>
-          <h2 className="profile__profession">Cargando...</h2>
+          <h2 className="profile__profession">{userDescription}</h2>
         </div>
         <button
           className="profile__add-button"
@@ -31,20 +57,11 @@ function Main(props) {
           onClick={props.onAddPlaceClick}
         ></button>
       </section>
-      <section className="cards"></section>
-      <template id="card-template">
-        <div className="cards__card">
-          <button className="cards__remove" id="remove-button"></button>
-          <img src=" " alt=" " className="cards__image" />
-          <div className="cards__info">
-            <h3 className="cards__location"></h3>
-            <div className="cards__like">
-              <button className="cards__like-button" id="like-button"></button>
-              <p className="cards__like-count"></p>
-            </div>
-          </div>
-        </div>
-      </template>
+      <section className="cards">
+        {cards.map((card) => {
+          return <Cards name={card.name} link={card.link} />;
+        })}
+      </section>
     </main>
   );
 }
