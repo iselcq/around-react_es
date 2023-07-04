@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { api } from "../utils/api.js";
-import Cards from "./Cards.js";
+import Cards from "./Cards.jsx";
 
 function Main(props) {
   const [userName, setUserName] = useState("");

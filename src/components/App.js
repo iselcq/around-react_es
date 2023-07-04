@@ -1,8 +1,8 @@
 import React from "react";
 import __logo from "../images/__logo.svg";
-import Header from "./Header.js";
-import Footer from "./Footer.js";
-import Main from "./Main.js";
+import Header from "./Header.jsx";
+import Footer from "./Footer.jsx";
+import Main from "./Main.jsx";
 import PopUpWithForm from "./PopUpWithForm";
 import ImagePopUp from "./ImagePopUp";
 import "../App.css";
