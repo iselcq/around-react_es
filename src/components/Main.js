@@ -20,7 +20,6 @@ function Main(props) {
 
   useEffect(() => {
     api.getInitialCards().then((res) => {
-      console.log(res);
       setCards(res);
     });
   }, []);
@@ -59,7 +58,14 @@ function Main(props) {
       </section>
       <section className="cards">
         {cards.map((card) => {
-          return <Cards name={card.name} link={card.link} />;
+          return (
+            <Cards
+              key={card._id}
+              name={card.name}
+              link={card.link}
+              onOpenImage={props.onOpenImage}
+            />
+          );
         })}
       </section>
     </main>
