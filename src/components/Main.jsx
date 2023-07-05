@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 import { api } from "../utils/api.js";
-import Cards from "./Cards.jsx";
+import Cards from "./Card.jsx";
 
 function Main(props) {
   const [userName, setUserName] = useState("");
   const [userDescription, setUserDescription] = useState("");
   const [userAvatar, setUserAvatar] = useState("");
-  const [userId, setUserId] = useState("");
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
@@ -14,7 +13,6 @@ function Main(props) {
       setUserName(res.name);
       setUserDescription(res.about);
       setUserAvatar(res.avatar);
-      setUserId(res._id);
     });
   }, []);
 

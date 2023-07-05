@@ -139,15 +139,6 @@ function App() {
         onCloseClick={closeAllPopups}
       ></PopUpWithForm>
       <div className="delete-card"></div>
-      <div className="image-popup">
-        <div className="image-popup__card">
-          <img src=" " alt=" " className="image-popup__image" />
-          <button className="image-popup__close" id="image-popup__close">
-            ¿Estás Seguro?
-          </button>
-          <h3 className="image-popup__title"></h3>
-        </div>
-      </div>
     </>
   );
 }

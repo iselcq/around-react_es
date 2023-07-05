@@ -1,6 +1,6 @@
 class Api {
   _fetchData(url, options) {
-    return fetch(`${process.env.REACT_APP_BASE_URL}/${url}`, options)
+    return fetch(`https://around.nomoreparties.co/v1/web_es_05/${url}`, options)
       .then((res) => {
         if (res.ok) {
           return res.json();
@@ -15,7 +15,7 @@ class Api {
   getInitialCards() {
     return this._fetchData("cards", {
       headers: {
-        authorization: process.env.REACT_APP_API_KEY,
+        authorization: "a35633fc-57a4-481b-b1c4-bb7e5e2ce1c9",
       },
       method: "GET",
     });
@@ -24,7 +24,7 @@ class Api {
   getUserInfo() {
     return this._fetchData("users/me", {
       headers: {
-        authorization: process.env.REACT_APP_API_KEY,
+        authorization: "a35633fc-57a4-481b-b1c4-bb7e5e2ce1c9",
       },
       method: "GET",
     });
@@ -33,7 +33,7 @@ class Api {
     return this._fetchData("users/me", {
       method: "PATCH",
       headers: {
-        authorization: process.env.REACT_APP_API_KEY,
+        authorization: "a35633fc-57a4-481b-b1c4-bb7e5e2ce1c9",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -46,7 +46,7 @@ class Api {
     return this._fetchData("users/me/avatar", {
       method: "PATCH",
       headers: {
-        authorization: process.env.REACT_APP_API_KEY,
+        authorization: "a35633fc-57a4-481b-b1c4-bb7e5e2ce1c9",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -58,7 +58,7 @@ class Api {
     return this._fetchData("cards", {
       method: "POST",
       headers: {
-        authorization: process.env.REACT_APP_API_KEY,
+        authorization: "a35633fc-57a4-481b-b1c4-bb7e5e2ce1c9",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -71,7 +71,7 @@ class Api {
     return this._fetchData(`cards/${id}`, {
       method: "DELETE",
       headers: {
-        authorization: process.env.REACT_APP_API_KEY,
+        authorization: "a35633fc-57a4-481b-b1c4-bb7e5e2ce1c9",
       },
     });
   }
@@ -79,7 +79,7 @@ class Api {
     return this._fetchData(`cards/likes/${id}`, {
       method: action,
       headers: {
-        authorization: process.env.REACT_APP_API_KEY,
+        authorization: "a35633fc-57a4-481b-b1c4-bb7e5e2ce1c9",
         "Content-Type": "application/json",
       },
     });
