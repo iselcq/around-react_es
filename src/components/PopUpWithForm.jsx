@@ -1,4 +1,4 @@
-function PopUpWithForm(props) {
+function PopupWithForm(props) {
   return (
     <div
       className={`${props.name} ${
@@ -26,4 +26,4 @@ function PopUpWithForm(props) {
     </div>
   );
 }
-export default PopUpWithForm;
+export default PopupWithForm;

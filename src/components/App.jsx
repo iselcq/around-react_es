@@ -3,8 +3,8 @@ import __logo from "../images/__logo.svg";
 import Header from "./Header.jsx";
 import Footer from "./Footer.jsx";
 import Main from "./Main.jsx";
-import PopUpWithForm from "./PopUpWithForm";
-import ImagePopUp from "./ImagePopUp";
+import PopupWithForm from "./PopUpWithForm";
+import ImagePopup from "./ImagePopUp";
 import "../App.css";
 
 function App() {
@@ -51,12 +51,12 @@ function App() {
         selectedCard={selectedCard}
       />
       <Footer />
-      <ImagePopUp
+      <ImagePopup
         isOpen={isImageOpen}
         onCloseClick={closeAllPopups}
         selectedCard={selectedCard}
       />
-      <PopUpWithForm
+      <PopupWithForm
         title="Editar perfil"
         name="pop-up"
         button="Guardar"
@@ -85,8 +85,8 @@ function App() {
           required
         />
         <p id="user-profession-error" className="pop-up__error"></p>
-      </PopUpWithForm>
-      <PopUpWithForm
+      </PopupWithForm>
+      <PopupWithForm
         title="Nuevo Lugar"
         name="new-place"
         button="Crear"
@@ -113,8 +113,8 @@ function App() {
           required
         />
         <p id="new-url-error" className="new-place__error"></p>
-      </PopUpWithForm>
-      <PopUpWithForm
+      </PopupWithForm>
+      <PopupWithForm
         title="Cambiar foto de perfil"
         name="profile-pic"
         button="Guardar"
@@ -131,13 +131,13 @@ function App() {
           required
         />
         <p id="new-title-error" className="profile-pic__error"></p>
-      </PopUpWithForm>
-      <PopUpWithForm
+      </PopupWithForm>
+      <PopupWithForm
         title="¿Estás seguro/a?"
         name="delete-card"
         button="Si"
         onCloseClick={closeAllPopups}
-      ></PopUpWithForm>
+      ></PopupWithForm>
       <div className="delete-card"></div>
     </>
   );

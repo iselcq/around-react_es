@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { api } from "../utils/api.js";
-import Cards from "./Card.jsx";
+import Card from "./Card.jsx";
 
 function Main(props) {
   const [userName, setUserName] = useState("");
@@ -57,7 +57,7 @@ function Main(props) {
       <section className="cards">
         {cards.map((card) => {
           return (
-            <Cards
+            <Card
               key={card._id}
               name={card.name}
               link={card.link}
