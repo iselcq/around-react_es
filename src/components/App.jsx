@@ -6,6 +6,7 @@ import Main from "./Main.jsx";
 import PopupWithForm from "./PopUpWithForm";
 import ImagePopup from "./ImagePopUp";
 import "../App.css";
+import { api } from "../utils/api.js";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 function App() {
