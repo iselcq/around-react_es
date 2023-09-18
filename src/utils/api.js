@@ -29,6 +29,7 @@ class Api {
       method: "GET",
     });
   }
+
   editUserInfo(name, about) {
     return this._fetchData("users/me", {
       method: "PATCH",
