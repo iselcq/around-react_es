@@ -49,12 +49,7 @@ function Main(props) {
       <section className="cards">
         {cards.map((card) => {
           return (
-            <Card
-              key={card._id}
-              name={card.name}
-              link={card.link}
-              onOpenImage={props.onOpenImage}
-            />
+            <Card card={card} key={card._id} onOpenImage={props.onOpenImage} />
           );
         })}
       </section>
