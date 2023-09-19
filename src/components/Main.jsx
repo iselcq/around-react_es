@@ -14,6 +14,15 @@ function Main(props) {
     });
   }, []);
 
+  function handleCardLike(card) {
+    // Verifica una vez más si a esta tarjeta ya le han dado like
+    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    // Envía una petición a la API y obtén los datos actualizados de la tarjeta
+    api.changeLikeCardStatus(card._id, !isLiked).then((newCard) => {
+      setCards((state) => state.map((c) => (c._id === card._id ? newCard : c)));
+    });
+  }
+
   return (
     <main className="content">
       <section className="profile">
@@ -49,7 +58,12 @@ function Main(props) {
       <section className="cards">
         {cards.map((card) => {
           return (
-            <Card card={card} key={card._id} onOpenImage={props.onOpenImage} />
+            <Card
+              card={card}
+              key={card._id}
+              onOpenImage={props.onOpenImage}
+              onCardLike={handleCardLike}
+            />
           );
         })}
       </section>

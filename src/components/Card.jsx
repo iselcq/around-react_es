@@ -2,10 +2,6 @@ import React from "react";
 import { CurrentUserContext } from "../contexts/CurrentUserContext.js";
 
 const Card = (props) => {
-  function handleCardOpen() {
-    props.onOpenImage(props);
-  }
-
   const currentUser = React.useContext(CurrentUserContext);
   // Verificando si el usuario actual es el propietario de la tarjeta actual
   const isOwn = props.card.owner._id === currentUser._id;
@@ -23,6 +19,12 @@ const Card = (props) => {
     isLiked ? "cards__like-button_active" : "cards__like-button"
   }`;
 
+  function handleLikeClick() {
+    props.onCardLike(props.card);
+  }
+  function handleCardOpen(card) {
+    props.onOpenImage(card);
+  }
   return (
     <div className="cards__card">
       <button
@@ -41,6 +43,7 @@ const Card = (props) => {
           <button
             className={`${cardLikeButtonClassName} cards__like-button`}
             id="like-button"
+            onClick={handleLikeClick}
           ></button>
           <p className="cards__like-count">{props.card.likes.length}</p>
         </div>
