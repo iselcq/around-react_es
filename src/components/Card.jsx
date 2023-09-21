@@ -21,9 +21,10 @@ const Card = (props) => {
 
   function handleLikeClick() {
     props.onCardLike(props.card);
+    console.log(props.card);
   }
-  function handleCardOpen(card) {
-    props.onOpenImage(card);
+  function handleCardOpen() {
+    props.onOpenImage(props.card);
   }
   return (
     <div className="cards__card">

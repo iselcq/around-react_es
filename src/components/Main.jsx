@@ -17,8 +17,9 @@ function Main(props) {
   function handleCardLike(card) {
     // Verifica una vez más si a esta tarjeta ya le han dado like
     const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    console.log(isLiked);
     // Envía una petición a la API y obtén los datos actualizados de la tarjeta
-    api.changeLikeCardStatus(card._id, !isLiked).then((newCard) => {
+    api.likeAndUnlike(card._id, !isLiked).then((newCard) => {
       setCards((state) => state.map((c) => (c._id === card._id ? newCard : c)));
     });
   }

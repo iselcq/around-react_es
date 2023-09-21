@@ -78,7 +78,7 @@ class Api {
   }
   likeAndUnlike(id, action) {
     return this._fetchData(`cards/likes/${id}`, {
-      method: action,
+      method: "PATCH",
       headers: {
         authorization: "a35633fc-57a4-481b-b1c4-bb7e5e2ce1c9",
         "Content-Type": "application/json",
