@@ -1,3 +1,5 @@
+import Card from "../components/Card";
+
 class Api {
   _fetchData(url, options) {
     return fetch(`https://around.nomoreparties.co/v1/web_es_05/${url}`, options)
@@ -78,7 +80,7 @@ class Api {
   }
   likeAndUnlike(id, action) {
     return this._fetchData(`cards/likes/${id}`, {
-      method: "PATCH",
+      method: action,
       headers: {
         authorization: "a35633fc-57a4-481b-b1c4-bb7e5e2ce1c9",
         "Content-Type": "application/json",

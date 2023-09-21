@@ -17,11 +17,16 @@ function Main(props) {
   function handleCardLike(card) {
     // Verifica una vez más si a esta tarjeta ya le han dado like
     const isLiked = card.likes.some((i) => i._id === currentUser._id);
-    console.log(isLiked);
+    const action = isLiked ? "DELETE" : "PUT";
     // Envía una petición a la API y obtén los datos actualizados de la tarjeta
-    api.likeAndUnlike(card._id, !isLiked).then((newCard) => {
+    api.likeAndUnlike(card._id, action).then((newCard) => {
       setCards((state) => state.map((c) => (c._id === card._id ? newCard : c)));
     });
+  }
+
+  function handleCardDelete(event, id) {
+    api.deleteCard(id);
+    console.log(cards);
   }
 
   return (
@@ -64,6 +69,7 @@ function Main(props) {
               key={card._id}
               onOpenImage={props.onOpenImage}
               onCardLike={handleCardLike}
+              onCardDelete={handleCardDelete}
             />
           );
         })}

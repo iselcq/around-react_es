@@ -21,16 +21,22 @@ const Card = (props) => {
 
   function handleLikeClick() {
     props.onCardLike(props.card);
-    console.log(props.card);
   }
+
   function handleCardOpen() {
     props.onOpenImage(props.card);
   }
+
+  function handleDeleteClick() {
+    props.onCardDelete(props.card);
+  }
+
   return (
     <div className="cards__card">
       <button
         className={`${cardDeleteButtonClassName} cards__remove`}
         id="remove-button"
+        onClick={handleDeleteClick}
       ></button>
       <img
         src={props.card.link}
