@@ -24,9 +24,12 @@ function Main(props) {
     });
   }
 
-  function handleCardDelete(event, id) {
-    api.deleteCard(id);
+  function handleCardDelete(id) {
     console.log(cards);
+    const newCards = cards.filter(function (x) {
+      return x !== id;
+    });
+    console.log(newCards);
   }
 
   return (
