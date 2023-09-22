@@ -8,6 +8,7 @@ import ImagePopup from "./ImagePopUp";
 import "../App.css";
 import { api } from "../utils/api.js";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
+import EditProfilePopUp from "./EditProfilePopUp";
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] =
@@ -43,9 +44,9 @@ function App() {
 
   function closeAllPopups() {
     setIsAddPlacePopupOpen(false);
-    setIsEditProfilePopupOpen(false);
     setIsEditAvatarPopupOpen(false);
     setIsImageOpen(false);
+    setIsEditProfilePopupOpen(false);
   }
 
   return (
@@ -66,7 +67,10 @@ function App() {
           onCloseClick={closeAllPopups}
           selectedCard={selectedCard}
         />
-
+        <EditProfilePopUp
+          isOpen={isEditProfilePopupOpen}
+          onCloseClick={closeAllPopups}
+        />
         <PopupWithForm
           title="Nuevo Lugar"
           name="new-place"
