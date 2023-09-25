@@ -24,12 +24,13 @@ function Main(props) {
     });
   }
 
-  function handleCardDelete(id) {
-    console.log(cards);
-    const newCards = cards.filter(function (x) {
-      return x !== id;
+  function handleCardDelete(card) {
+    api.deleteCard(card._id).then(() => {
+      const newCards = cards.filter(function (x) {
+        return x._id !== card._id;
+      });
+      setCards(newCards);
     });
-    console.log(newCards);
   }
 
   return (

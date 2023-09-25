@@ -49,6 +49,13 @@ function App() {
     setIsEditProfilePopupOpen(false);
   }
 
+  function handleUpdateUser() {
+    api.setUserInfo().then((res) => {
+      setCurrentUser(res);
+    });
+    closeAllPopups();
+  }
+
   return (
     <>
       <CurrentUserContext.Provider value={currentUser}>
@@ -70,6 +77,8 @@ function App() {
         <EditProfilePopUp
           isOpen={isEditProfilePopupOpen}
           onCloseClick={closeAllPopups}
+          // onSubmit={onSubmit}
+          onUpdateUser={handleUpdateUser}
         />
         <PopupWithForm
           title="Nuevo Lugar"

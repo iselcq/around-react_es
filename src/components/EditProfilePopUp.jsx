@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PopupWithForm from "./PopUpWithForm";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
+import { api } from "../utils/api.js";
 
 function EditProfilePopUp(props) {
   const [name, setName] = React.useState("");
   const [description, setDescription] = React.useState("");
+  const currentUser = React.useContext(CurrentUserContext);
+
+  useEffect(() => {
+    api.getUserInfo().then(() => {
+      setName(currentUser.name);
+      setDescription(currentUser.about);
+    });
+  }, [currentUser]);
 
   function handleOnChangeName(e) {
     setName(e.target.value);
@@ -12,6 +22,16 @@ function EditProfilePopUp(props) {
   function handleOnChangeDescription(e) {
     setDescription(e.target.value);
   }
+
+  // function handleSubmit() {
+  //   // Evita que el navegador navegue hacia la dirección del formulario
+  //   e.preventDefault();
+  //   // Pasa los valores de los componentes gestionados al controlador externo
+  //   props.onUpdateUser({
+  //     name,
+  //     about: description,
+  //   });
+  // }
 
   return (
     <>
