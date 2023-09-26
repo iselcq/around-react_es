@@ -9,10 +9,8 @@ function EditProfilePopUp(props) {
   const currentUser = React.useContext(CurrentUserContext);
 
   useEffect(() => {
-    api.getUserInfo().then(() => {
-      setName(currentUser.name);
-      setDescription(currentUser.about);
-    });
+    setName(currentUser.name);
+    setDescription(currentUser.about);
   }, [currentUser]);
 
   function handleOnChangeName(e) {
@@ -23,15 +21,15 @@ function EditProfilePopUp(props) {
     setDescription(e.target.value);
   }
 
-  // function handleSubmit() {
-  //   // Evita que el navegador navegue hacia la dirección del formulario
-  //   e.preventDefault();
-  //   // Pasa los valores de los componentes gestionados al controlador externo
-  //   props.onUpdateUser({
-  //     name,
-  //     about: description,
-  //   });
-  // }
+  function handleSubmit(e) {
+    // Evita que el navegador navegue hacia la dirección del formulario
+    e.preventDefault();
+    // Pasa los valores de los componentes gestionados al controlador externo
+    props.onUpdateUser({
+      name,
+      about: description,
+    });
+  }
 
   return (
     <>
@@ -41,13 +39,14 @@ function EditProfilePopUp(props) {
         button="Guardar"
         isOpen={props.isOpen}
         onCloseClick={props.onCloseClick}
+        onSubmit={handleSubmit}
       >
         <input
           type="text"
           className="pop-up__input"
           id="user-name"
           name="name"
-          value={name}
+          value={name ?? ""}
           placeholder="Nombre"
           minLength="2"
           maxLength="40"
@@ -63,7 +62,7 @@ function EditProfilePopUp(props) {
           placeholder="Acerca de mí"
           minLength="2"
           maxLength="200"
-          value={description}
+          value={description ?? ""}
           onChange={handleOnChangeDescription}
           required
         />

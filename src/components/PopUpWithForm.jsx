@@ -11,14 +11,11 @@ function PopupWithForm(props) {
           className={`${props.name}__close`}
         ></button>
         <h3 className={`${props.name}__title`}>{`${props.title}`}</h3>
-        <form name={`${props.name}__form`}>
+        <form name={`${props.name}__form`} onSubmit={props.onSubmit}>
           <fieldset className={`${props.name}__container`}>
             {props.children}
           </fieldset>
-          <button
-            type="submit"
-            className={`${props.name}__submit ${props.name}__submit_disabled`}
-          >
+          <button type="submit" className={`${props.name}__submit`}>
             {`${props.button}`}
           </button>
         </form>

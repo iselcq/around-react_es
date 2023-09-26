@@ -49,8 +49,8 @@ function App() {
     setIsEditProfilePopupOpen(false);
   }
 
-  function handleUpdateUser() {
-    api.setUserInfo().then((res) => {
+  function handleUpdateUser(updatedUser) {
+    api.editUserInfo(updatedUser.name, updatedUser.about).then((res) => {
       setCurrentUser(res);
     });
     closeAllPopups();
@@ -77,8 +77,8 @@ function App() {
         <EditProfilePopUp
           isOpen={isEditProfilePopupOpen}
           onCloseClick={closeAllPopups}
-          // onSubmit={onSubmit}
           onUpdateUser={handleUpdateUser}
+          button="Guardar"
         />
         <PopupWithForm
           title="Nuevo Lugar"
