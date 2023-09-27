@@ -5,15 +5,12 @@ const Card = (props) => {
   const currentUser = React.useContext(CurrentUserContext);
   // Verificando si el usuario actual es el propietario de la tarjeta actual
   const isOwn = props.card.owner._id === currentUser._id;
-
   // Creando una variable que después establecerás en `className` para el botón eliminar
   const cardDeleteButtonClassName = ` ${
     isOwn ? "cards__remove_enabled" : "cards__remove"
   }`;
-
   // Verifica si el usuario actual le dio "like" a la tarjeta
   const isLiked = props.card.likes.some((i) => i._id === currentUser._id);
-
   // Crea una variable que después establecerás en `className` para el botón like
   const cardLikeButtonClassName = ` ${
     isLiked ? "cards__like-button_active" : "cards__like-button"
