@@ -9,6 +9,7 @@ import "../App.css";
 import { api } from "../utils/api.js";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import EditProfilePopUp from "./EditProfilePopUp";
+import EditAvatarPopUp from "./EditAvatarPopUp";
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] =
@@ -42,18 +43,26 @@ function App() {
     setSelectedCard(card);
   }
 
-  function closeAllPopups() {
-    setIsAddPlacePopupOpen(false);
-    setIsEditAvatarPopupOpen(false);
-    setIsImageOpen(false);
-    setIsEditProfilePopupOpen(false);
-  }
-
   function handleUpdateUser(updatedUser) {
     api.editUserInfo(updatedUser.name, updatedUser.about).then((res) => {
       setCurrentUser(res);
     });
     closeAllPopups();
+  }
+
+  function handleUpdateAvatar(updatedUser) {
+    api.editUserAvatar(updatedUser.avatar).then((res) => {
+      setCurrentUser(res);
+    });
+
+    closeAllPopups();
+  }
+
+  function closeAllPopups() {
+    setIsAddPlacePopupOpen(false);
+    setIsEditAvatarPopupOpen(false);
+    setIsImageOpen(false);
+    setIsEditProfilePopupOpen(false);
   }
 
   return (
@@ -79,6 +88,12 @@ function App() {
           onCloseClick={closeAllPopups}
           onUpdateUser={handleUpdateUser}
           button="Guardar"
+        />
+
+        <EditAvatarPopUp
+          isOpen={isEditAvatarPopupOpen}
+          onCloseClick={closeAllPopups}
+          onUpdateAvatar={handleUpdateAvatar}
         />
         <PopupWithForm
           title="Nuevo Lugar"
@@ -107,24 +122,6 @@ function App() {
             required
           />
           <p id="new-url-error" className="new-place__error"></p>
-        </PopupWithForm>
-        <PopupWithForm
-          title="Cambiar foto de perfil"
-          name="profile-pic"
-          button="Guardar"
-          isOpen={isEditAvatarPopupOpen}
-          onCloseClick={closeAllPopups}
-        >
-          <input
-            type="url"
-            className="profile-pic__input"
-            id="url"
-            name="url"
-            pattern="https://.*"
-            placeholder="https://somewebsite.com/someimage.jpg"
-            required
-          />
-          <p id="new-title-error" className="profile-pic__error"></p>
         </PopupWithForm>
         <PopupWithForm
           title="¿Estás seguro/a?"
