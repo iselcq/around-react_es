@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import __logo from "../images/__logo.svg";
-import Header from "./Header.jsx";
-import Footer from "./Footer.jsx";
-import Main from "./Main.jsx";
+import Header from "./Header.js";
+import Footer from "./Footer.js";
+import Main from "./Main.js";
 import PopupWithForm from "./PopUpWithForm";
 import ImagePopup from "./ImagePopUp";
 import "../App.css";
