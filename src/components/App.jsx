@@ -10,6 +10,7 @@ import { api } from "../utils/api.js";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import EditProfilePopUp from "./EditProfilePopUp";
 import EditAvatarPopUp from "./EditAvatarPopUp";
+import AddPlacePopUp from "./AddPlacePopUp";
 
 function App() {
   const [cards, setCards] = React.useState([]);
@@ -83,6 +84,13 @@ function App() {
     closeAllPopups();
   }
 
+  function handleAddPlaceSubmit(name, link) {
+    api.addNewCard(name, link).then((newCard) => {
+      setCards([newCard, ...cards]);
+    });
+    closeAllPopups();
+  }
+
   function closeAllPopups() {
     setIsAddPlacePopupOpen(false);
     setIsEditAvatarPopupOpen(false);
@@ -123,34 +131,12 @@ function App() {
           onCloseClick={closeAllPopups}
           onUpdateAvatar={handleUpdateAvatar}
         />
-        <PopupWithForm
-          title="Nuevo Lugar"
-          name="new-place"
-          button="Crear"
+        <AddPlacePopUp
           isOpen={isAddPlacePopupOpen}
           onCloseClick={closeAllPopups}
-        >
-          <input
-            type="text"
-            className="new-place__input"
-            id="new-title"
-            name="title"
-            placeholder="Título"
-            minLength="2"
-            maxLength="30"
-            required
-          />
-          <p id="new-title-error" className="new-place__error"></p>
-          <input
-            type="url"
-            className="new-place__input"
-            id="new-url"
-            name="url"
-            placeholder="Enlace a la imagen"
-            required
-          />
-          <p id="new-url-error" className="new-place__error"></p>
-        </PopupWithForm>
+          onAddPlaceSubmit={handleAddPlaceSubmit}
+        />
+
         <PopupWithForm
           title="¿Estás seguro/a?"
           name="delete-card"
