@@ -1,7 +1,7 @@
-import PopupWithForm from "./PopUpWithForm";
+import PopupWithForm from "./PopupWithForm";
 import React from "react";
 
-function AddPlacePopUp(props) {
+function AddPlacePopup(props) {
   const placeNameRef = React.useRef(null);
   const placeLinkRef = React.useRef(null);
 
@@ -50,4 +50,4 @@ function AddPlacePopUp(props) {
   );
 }
 
-export default AddPlacePopUp;
+export default AddPlacePopup;

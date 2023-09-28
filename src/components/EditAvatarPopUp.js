@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import PopupWithForm from "./PopUpWithForm";
+import PopupWithForm from "./PopupWithForm";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
-function EditAvatarPopUp(props) {
+function EditAvatarPopup(props) {
   const avatarRef = React.useRef(null);
   const currentUser = React.useContext(CurrentUserContext);
   const [avatar, setAvatar] = React.useState("");
@@ -43,4 +43,4 @@ function EditAvatarPopUp(props) {
     </>
   );
 }
-export default EditAvatarPopUp;
+export default EditAvatarPopup;

@@ -3,14 +3,14 @@ import __logo from "../images/__logo.svg";
 import Header from "./Header.js";
 import Footer from "./Footer.js";
 import Main from "./Main.js";
-import PopupWithForm from "./PopUpWithForm";
-import ImagePopup from "./ImagePopUp";
+import PopupWithForm from "./PopupWithForm";
+import ImagePopup from "./ImagePopup";
 import "../App.css";
-import { api } from "../utils/api.js";
+import api from "../utils/api.js";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
-import EditProfilePopUp from "./EditProfilePopUp";
-import EditAvatarPopUp from "./EditAvatarPopUp";
-import AddPlacePopUp from "./AddPlacePopUp";
+import EditProfilePopup from "./EditProfilePopup";
+import EditAvatarPopup from "./EditAvatarPopup";
+import AddPlacePopup from "./AddPlacePopup";
 
 function App() {
   const [cards, setCards] = React.useState([]);
@@ -119,19 +119,19 @@ function App() {
           onCloseClick={closeAllPopups}
           selectedCard={selectedCard}
         />
-        <EditProfilePopUp
+        <EditProfilePopup
           isOpen={isEditProfilePopupOpen}
           onCloseClick={closeAllPopups}
           onUpdateUser={handleUpdateUser}
           button="Guardar"
         />
 
-        <EditAvatarPopUp
+        <EditAvatarPopup
           isOpen={isEditAvatarPopupOpen}
           onCloseClick={closeAllPopups}
           onUpdateAvatar={handleUpdateAvatar}
         />
-        <AddPlacePopUp
+        <AddPlacePopup
           isOpen={isAddPlacePopupOpen}
           onCloseClick={closeAllPopups}
           onAddPlaceSubmit={handleAddPlaceSubmit}
