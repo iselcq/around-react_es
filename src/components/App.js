@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import __logo from "../images/__logo.svg";
 import Header from "./Header.js";
 import Footer from "./Footer.js";
 import Main from "./Main.js";
@@ -21,7 +20,7 @@ function App() {
     React.useState(false);
   const [isImageOpen, setIsImageOpen] = React.useState(false);
   const [selectedCard, setSelectedCard] = React.useState({});
-  const [currentUser, setCurrentUser] = React.useState("");
+  const [currentUser, setCurrentUser] = React.useState({});
 
   useEffect(() => {
     api.getUserInfo().then((res) => {
@@ -47,7 +46,7 @@ function App() {
 
   function handleCardDelete(card) {
     api.deleteCard(card._id).then(() => {
-      const newCards = cards.filter(function (x) {
+      const newCards = cards.filter((x) => {
         return x._id !== card._id;
       });
       setCards(newCards);
@@ -143,7 +142,6 @@ function App() {
           button="Si"
           onCloseClick={closeAllPopups}
         ></PopupWithForm>
-        <div className="delete-card"></div>
       </CurrentUserContext.Provider>
     </>
   );
